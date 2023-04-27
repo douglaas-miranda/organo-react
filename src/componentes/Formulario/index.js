@@ -4,7 +4,7 @@ import CampoTexto from "../CampoTexto";
 import ListaSuspensa from "../ListaSuspensa";
 import "./Formulario.css";
 
-const Formulario = () => {
+const Formulario = (props) => {
   const times = [
     "Programação",
     "Front-End",
@@ -22,7 +22,12 @@ const Formulario = () => {
 
   const aoSalvar = (e) => {
     e.preventDefault();
-    console.log("Form foi submetido =>", nome, cargo, imagem, time);
+    props.aoColaboradorCadastrado({
+      nome,
+      cargo,
+      imagem,
+      time,
+    });
   };
 
   return (
@@ -43,20 +48,18 @@ const Formulario = () => {
           valor={cargo}
           aoAlterado={(valor) => setCargo(valor)}
         />
-        <CampoTexto 
-          label="Imagem" 
+        <CampoTexto
+          label="Imagem"
           placeholder="Digite o endereço da imagem"
           valor={imagem}
-          aoAlterado={valor => setImagem(valor)}
-
+          aoAlterado={(valor) => setImagem(valor)}
         />
         <ListaSuspensa
           obrigatorio={true}
-          label="Time" 
+          label="Time"
           itens={times}
           valor={time}
-          aoAlterado={valor => setTime(valor)}
-
+          aoAlterado={(valor) => setTime(valor)}
         />
         <Botao>Criar Card</Botao>
       </form>
