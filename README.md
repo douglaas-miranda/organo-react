@@ -3,7 +3,7 @@
 https://organograma-react-red.vercel.app/
 <p></p>
 
-![Organograma](public\design\ds_1.png)
+![Organograma](/public/design/ds_1.png)
 
 <h2> Sobre o Projeto </h2>
 <h4> Olá bem vindo ao meu projeto, nele foi desenvolvido um organograma onde podemos fazer: </h4>
