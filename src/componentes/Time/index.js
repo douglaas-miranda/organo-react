@@ -12,10 +12,10 @@ const Time = (props) => {
         <input onChange={evento => props.mudarCor(evento.target.value, props.nome)} value={props.cor} type="color" className="input-cor" />
         <h3 style={{ borderColor: props.cor }}>{props.nome}</h3>
         <div className="colaboradores">
-          {props.colaboradores.map((colaborador) => {
+          {props.colaboradores.map((colaborador, indice) => {
             return <Colaborador 
               corDeFundo={props.cor} 
-              key={colaborador.nome}
+              key={indice}
               nome={colaborador.nome}
               cargo={colaborador.cargo}
               imagem={colaborador.imagem}

@@ -52,8 +52,8 @@ function App() {
     setColaboradores([...colaboradores, colaborador])
   };
 
-  function deletarColaborador () {
-    console.log('deletando colab');
+  function deletarColaborador (nome) {
+    setColaboradores(colaboradores.filter(colaborador => colaborador.nome !== nome));
   }
 
   function mudarCorDoTime(cor, nome) {
@@ -75,14 +75,15 @@ function App() {
         }
       />
 
-      {times.map(time => <Time
-       mudarCor={mudarCorDoTime} 
-       key={time.nome}
-       nome={time.nome}
-       corPrimaria={time.cor}
-       cor={time.cor}
-       colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
-       aoDeletar={deletarColaborador}
+      {times.map(time => 
+      <Time
+        mudarCor={mudarCorDoTime} 
+        key={time.nome}
+        nome={time.nome}
+        corPrimaria={time.cor}
+        cor={time.cor}
+        colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+        aoDeletar={deletarColaborador}
        />)}
 
        <Rodape />
